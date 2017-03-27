@@ -36,7 +36,7 @@ public class Repositorio{
     ensures getTotal>= \old getTotal-m;
     ensures (forall int i; 0<=i && i<\result.size(); \old moedas.contains(\result.get(i));
     ensures (forall int i; 0<=i && i<\old moedas.size(); m<moedas.get(i)+(\sum int j; 0 <= j && j < \result.size(); \result.get(j)));
-    
+    ensures \old moedas.getMoedas() == moedas.getMoedas() + \result.size();
     @*/
     public ArrayList<Integer> remove(int m){
     
