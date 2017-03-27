@@ -33,9 +33,13 @@ public class Repositorio{
     
     }
     /*@
+    requires m>0;
+    requires m<getTotal();
+    ensures getTotal>= \old getTotal-m;
+    ensures (forall int i; 0<=i && i<\result.size(); \old moedas.contains(\result.get(i))     
     
     @*/
-    public int remove(int m){
+    public ArrayList<Integer> remove(int m){
     
     }
     /*@
