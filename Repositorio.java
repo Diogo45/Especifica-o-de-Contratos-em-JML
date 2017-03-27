@@ -11,9 +11,7 @@ public class Repositorio{
     }
     /*@
     requires m == 100 || m == 50 || m == 25 || m == 10 || m == 5 || m == 1;
-    ensures (\forall int i;
-                0<=i && i<moedas.size()-1;
-                moedas.get(i) == \old moedas.get(i));
+    ensures (\forall int i; 0<=i && i<moedas.size()-1; moedas.get(i) == \old moedas.get(i));
     ensures moedas.get(moedas.size()-1) == m;
     ensures moedas.size() == \old moedas.size()+1;
     @*/
