@@ -18,19 +18,21 @@ public class Repositorio{
     ensures moedas.size() == \old(moedas.size()+1);
     @*/
     public boolean add(int m){
-    
+        moedas.add(i);
     }
     /*@
     ensures \result == moedas.size();
     @*/
     public /*@ pure @*/ int getMoedas(){
-    
+         return moedas.size();
     }
     /*@
     ensures \result == (\sum int i; 0 <= i && i < moedas.size(); moedas.get(i));
     @*/
     public /*@ pure @*/ int getTotal(){
-    
+        int r=0;
+        for(int i=0;i<getMoedas();i++){r += moedas.get(i);}
+        return r;
     }
     /*@
     requires m>0;
@@ -47,6 +49,6 @@ public class Repositorio{
     ensures moedas.size() == 0;
     @*/
     public void reset(){
-    
+        moedas.clear();
     }
 }
