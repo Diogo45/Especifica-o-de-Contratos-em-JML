@@ -1,5 +1,5 @@
 import java.util.*;
-public class Repositorio{
+public class Repositorio2{
     private /*@ spec_public nullable @*/ArrayList<Integer> moedas;
     //@invariant moedas != null;
     /*@
