@@ -22,13 +22,15 @@ public class Repositorio{
     ensures \result == moedas.size();
     @*/
     public /*@ pure @*/ int getMoedas(){
-    
+        return moedas.size();
     }
     /*@
     ensures \result == (\sum int i; 0 <= i && i < moedas.size(); moedas.get(i));
     @*/
     public /*@ pure @*/ int getTotal(){
-    
+        int r=0;
+        for(int i=0;i<getMoedas();i++){r += moedas.get(i);}
+        return r;
     }
     /*@
     requires m>0;
@@ -39,12 +41,12 @@ public class Repositorio{
     ensures \old moedas.getMoedas() == moedas.getMoedas() + \result.size();
     @*/
     public ArrayList<Integer> remove(int m){
-    
+        for(int i=0;i<=moedas.size()){}
     }
     /*@
     ensures moedas.size() == 0;
     @*/
     public void reset(){
-    
+        moedas.clear();
     }
 }
