@@ -47,17 +47,17 @@ public class Repositorio{
     ensures moedas.size() == (\old(moedas.size()) - \result.size());
     @*/
     public ArrayList<Integer> remove(int m){
-            ArrayList<Integer> r=new ArrayList<Integer>();
-            while(true){
-                int a=0 ;
-                for(int i=0;i<getMoedas();i++){
-                    if(a<moedas.get(i)&&moedas.get(i)<m){a=moedas.get(i);}
-                }
-                if(a==0){return r;}
-                r.add(a);
-                moedas.remove(a);
-                m-=a;
-          }
+      ArrayList<Integer> r=new ArrayList<Integer>();
+      while(true){
+        int a=0;
+        for(int i=0;i<moedas.size();i++){
+        if(a<moedas.get(i)&&moedas.get(i)<=m){a=moedas.get(i);}
+        }
+        if(a==0){return r;}
+        r.add(a);
+        moedas.remove((Integer)a);
+        m-=a;
+      }
     }
     /*@
     ensures moedas.size() == 0;
