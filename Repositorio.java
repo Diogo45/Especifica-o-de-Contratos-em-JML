@@ -17,8 +17,8 @@ public class Repositorio{
     ensures moedas.get(moedas.size()-1) == m;
     ensures moedas.size() == \old(moedas.size()+1);
     @*/
-    public boolean add(int m){
-        moedas.add(i);
+    public void add(int m){
+        moedas.add(m);
     }
     /*@
     ensures \result == moedas.size();
@@ -31,16 +31,19 @@ public class Repositorio{
     @*/
     public /*@ pure @*/ int getTotal(){
         int r=0;
-        for(int i=0;i<getMoedas();i++){r += moedas.get(i);}
+        for(int i=0;i<getMoedas();i++){
+            r += moedas.get(i);
+        }
         return r;
     }
     /*@
     requires m>0;
     requires m<getTotal();
     ensures getTotal() >= \old( getTotal()-m);
-    ensures ( \forall int i; 0<=i && i< \result.size(); \old(moedas.contains(\result.get(i))));
-    ensures ( \forall int i; 0<=i && i<\old( moedas.size()); m<moedas.get(i)+(\sum int j; 0 <= j && j < \result.size(); \result.get(j)));
+    ensures (\forall int i; 0<=i && i< \result.size(); \old(moedas.contains(\result.get(i))));
+    ensures (\forall int i; 0<=i && i< \old(moedas.size()); m<moedas.get(i)+(\sum int j; 0 <= j && j < \result.size(); \result.get(j)));
     ensures \old(moedas.getMoedas()) == moedas.getMoedas() + \result.size();
+    ensures (\forall int i; 0<=i && i< 
     @*/
     public ArrayList<Integer> remove(int m){
     
