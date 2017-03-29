@@ -40,13 +40,25 @@ public class Repositorio{
     requires m>0;
     requires m<getTotal();
     ensures getTotal() >= \old( getTotal()-m);
-    ensures (\forall int i; 0<=i && i< \result.size(); \old(moedas.contains(\result.get(i))));
+    ensures (\forall int i; 0<=i && i< \result.size(); \old(moedas).contains(\result.get(i)));
     ensures (\forall int i; 0<=i && i< \old(moedas.size()); m<moedas.get(i)+(\sum int j; 0 <= j && j < \result.size(); \result.get(j)));
     ensures \old(moedas.getMoedas()) == moedas.getMoedas() + \result.size();
-    ensures (\forall int i; 0<=i && i< 
+    ensures (\forall int i; 0<=i && i< moedas.size(); \old(moedas).contains(moedas.get(i)) && !(\result.contains(moedas.get(i))));
+    ensures moedas.size() == (\old(moedas.size()) - \result.size());
     @*/
     public ArrayList<Integer> remove(int m){
-    
+        int restante=m;
+            ArrayList<Integer> r=new ArrayList<Integer>();
+            while(true){
+                int a=0 ;
+                for(int i=0;i<getMoedas();i++){
+                    if(a<moedas.get(i)&&moedas.get(i)<restante){a=moedas.get(i);}
+                }
+                if(a==0){return r;}
+                r.add(a);
+                moedas.remove(a);
+                restante-=a;
+          }
     }
     /*@
     ensures moedas.size() == 0;
